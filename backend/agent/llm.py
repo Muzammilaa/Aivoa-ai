@@ -4,6 +4,8 @@ import os
 
 load_dotenv()
 
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+
 def create_groq_client():
     """Create and return a Groq client using the API key from .env"""
     api_key = os.getenv("GROQ_API_KEY")
@@ -16,7 +18,7 @@ def test_groq_call():
     client = create_groq_client()
     
     response = client.chat.completions.create(
-        model="gemma2-9b-it",
+        model=GROQ_MODEL,
         messages=[
             {"role": "user", "content": "Hello! Please respond with a simple greeting to confirm the connection is working."}
         ],
