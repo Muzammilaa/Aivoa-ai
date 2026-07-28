@@ -20,12 +20,12 @@ class ComplaintCreate(BaseModel):
     batch_lot_number: str
     manufacturing_date: date | None = None
     expiry_date: date | None = None
-    quantity_affected: str
+    quantity_affected: str | None = None
     complaint_type: str
-    complaint_date: date
+    complaint_date: date | None = None
     description: str
-    initial_severity: str
-    priority: str
+    initial_severity: str | None = None
+    priority: str | None = None
     status: str = "Pending Triage"
     raw_input_text: str | None = None
 
